@@ -1,7 +1,10 @@
 const express = require("express");
 const app = express();
 const createDatabasePool = require("./config/database");
-require("dotenv").config();
+
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
 app.use(express.json());
 
